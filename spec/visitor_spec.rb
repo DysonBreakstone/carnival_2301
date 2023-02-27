@@ -1,4 +1,4 @@
-require visitor.rb
+require './lib/visitor.rb'
 
 RSpec.describe Visitor do
 
@@ -14,22 +14,22 @@ RSpec.describe Visitor do
 
   it "has attributes" do 
     expect(@visitor1.name).to eq("Bruce")
-    expect(@visitor1.height).to eq("54")
-    expect(@visitor1.spending_moneyt).to eq(10)
+    expect(@visitor1.height).to eq(54)
+    expect(@visitor1.spending_money).to eq("$10")
     expect(@visitor1.preferences).to be_a(Array)
   end
 
   it "can add to preferences array" do
-    visitor1.add_preference(:gentle)
-    visitor1.add_preference(:water)
+    @visitor1.add_preference(:gentle)
+    @visitor1.add_preference(:water)
 
-    expect(visitor1.preferences).to eq([:gentle, :water])
+    expect(@visitor1.preferences).to eq([:gentle, :water])
   end
 
   it "can determine whether height is sufficient for a given requirement" do
-    expect(visitor1.tall_enough?(54)).to be(true)
-    expect(visitor2.tall_enough?(54)).to be(false)
-    expect(visitor3.tall_enough?(54)).to be(true)
-    expect(visitor1.tall_enough?(64)).to be(false)
+    expect(@visitor1.tall_enough?(54)).to be(true)
+    expect(@visitor2.tall_enough?(54)).to be(false)
+    expect(@visitor3.tall_enough?(54)).to be(true)
+    expect(@visitor1.tall_enough?(64)).to be(false)
   end
 end
