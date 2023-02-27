@@ -14,11 +14,11 @@ RSpec.describe Carnival do
     @visitor1 = Visitor.new('Bruce', 54, '$10')
     @visitor2 = Visitor.new('Tucker', 36, '$5')
     @visitor3 = Visitor.new('Penny', 64, '$15')
-    @visitor4 = Visitor.new('Barbara', 25, '$20')
+    @visitor4 = Visitor.new('Barbara', 70, '$20')
     @visitor5 = Visitor.new('Samuel', 80, '$1000')
 
     @carnival1.add_ride(@ride1, @ride2, @ride3)
-    @carnival2.add_ride(@ride3, @ride4)
+    @carnival2.add_ride(@ride4, @ride5)
     @visitor1.add_preference(:gentle)
     @visitor2.add_preference(:gentle)
     @visitor3.add_preference(:thrilling)
@@ -43,15 +43,15 @@ RSpec.describe Carnival do
   end
 
   it "can report most popular ride" do
-    expect(@carnival1.most_popluar_ride).to eq(@ride3)
+    expect(@carnival1.most_popular_ride).to eq(@ride3)
   end
   
   it "can report most profitable ride" do
-    expect(@carnival1.most_popluar_ride).to eq(@ride2)
+    expect(@carnival1.most_profitable_ride).to eq(@ride2)
   end
 
   it "can calculate total revenue" do
-    expect(@carnival1.total_revenue). to eq(16)
+    expect(@carnival1.total_revenue).to eq(16)
   end
 
 end
